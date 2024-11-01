@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .image-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .image-item:hover {
+            transform: scale(1.05);
+        }
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.7);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: 0.5s ease;
+        }
+        .image-item:hover .image-overlay {
+            height: 100%;
+        }
+        .overlay-text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* Tambahan style untuk background profil */
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./img/background.jpg'); /* Ganti dengan foto pribadi Anda */
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px); /* Atur tingkat blur di sini */
+            opacity: 0.7; /* Atur transparansi background */
+            z-index: -1;
+        }
+        .profile-overlay {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="relative h-screen parallax-bg">
+        <div class="header-background"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center profile-overlay">
+            <div class="text-center text-white">
+                <img src="./img/profil.jpg" alt="Profil Foto" class="mx-auto rounded-full w-48 h-48 object-cover mb-4 border-4 border-white">
+                <h1 class="text-5xl font-bold mb-4">PrinceDitzz</h1>
+                <p class="text-xl mb-8">Artist | Gaming | 3D Modeling</p>
+                <a href="#gallery" class="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition">Lihat Karya Saya</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Tentang Saya -->
+    <section id="about" class="container mx-auto px-4 py-16 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">Tentang Saya</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="./img/guwa.jpg" alt="Foto Pribadi" class="rounded-lg shadow-lg">
+                </div>
+                <div class="text-left">
+                    <p class="text-gray-600 mb-4">
+                        Halo! Saya seorang seniman yang penuh semangat dalam menjelajahi dunia game dan pemodelan 3D. Mulai dari membuat sketsa konsep hingga membangun ruang 3D yang imersif, saya selalu bersemangat bekerja di bidang yang menggabungkan kreativitas dengan teknologi. Perjalanan saya dipenuhi dengan kreasi, eksperimen, dan pembelajaran untuk mewujudkan ide-ide yang saya miliki.
+                    </p>
+                    <p class="text-gray-600">
+                        Di luar pekerjaan digital, saya juga suka bermain game, mengeksplorasi strategi baru, atau mencari inspirasi dari desain dalam game. Bagi saya, seni dan game berjalan beriringan, menginspirasi visi saya untuk menciptakan pengalaman yang menarik dan visual yang memikat.
+                    </p>
+                    <div class="mt-6">
+                        <h3 class="text-2xl font-semibold mb-4">Keahlian</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Gaming</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Drawing</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Makan</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Turu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Foto -->
+    <section id="gallery" class="container mx-auto px-4 py-16 bg-gray-100">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800">Galeri</h2>
+            <p class="text-gray-600 mt-4">Small sketch,Big Dream:)</p>
+        </div>
+        
+        <div class="image-grid">
+            <!-- Contoh 6 foto -->
+            <div class="image-item">
+                <img src="./img/pic1.jpg" alt="Foto 1" class="w-full h-full object-cover">
+                <div class="image-overlay">
+                    <div class="overlay-text">Cute Witch 3D</div>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="./img/pic2.jpg" alt="Foto 2" class="w-full h-full object-cover">
+                <div class="image-overlay">
+                    <div class="overlay-text">Woman Dress Sketch</div>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="./img/pic3.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                <div class="image-overlay">
+                    <div class="overlay-text">The Boss Baby with Pen</div>
+                </div>
+            </div>
+            <div class="image-item">
+                <img src="./img/pic4.jpg" alt="Foto 4" class="w-full h-full object-cover">
+                <div class="image-overlay">
+                    <div class="overlay-text">Garou with Blue Pen</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">Hubungi Saya</h2>
+            <div class="max-w-md mx-auto">
+                <form id="contactForm" class="space-y-4">
+                    <input type="text" id="nameInput" placeholder="Nama Anda" class="w-full p-3 border rounded-lg" required>
+                    <textarea id="messageInput" placeholder="Pesan Anda" class="w-full p-3 border rounded-lg h-32" required></textarea>
+                    <div class="flex space-x-4">
+                        <button type="submit" class="flex-1 bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition">
+                            Kirim Pesan
+                        </button>
+                        <button type="button" id="whatsappButton" class="flex-1 bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition">
+                            Kirim via WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://www.instagram.com/dtzc0re?igsh=NDhwbXRodTRteTVh" class="hover:text-gray-400">Instagram</a>
+                <a href="https://www.tiktok.com/@ditzzart?_t=8r2F1R9vunY&_r=1" class="hover:text-gray-400">TikTok</a>
+                <a href="https://wa.link/0v2v87" class="hover:text-gray-400">WhatsApp</a>
+            </div>
+            <p>&copy; 2024 PrinceDitzz. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Masih Maintenance Cuy,Kalau mau cht lewat Wangsaf aja😁');
+            this.reset();
+        });
+
+        document.getElementById('whatsappButton').addEventListener('click', function() {
+            const name = document.getElementById('nameInput').value;
+            const message = document.getElementById('messageInput').value;
+
+            // Validate form inputs
+            if (!name || !message) {
+                alert('Isi pesan dulu atau bisa langsung pencet link dibawah🤠');
+                return;
+            }
+
+            // Prepare WhatsApp message
+            const whatsappNumber = '6287802529031'; // Replace with your actual WhatsApp number
+            const whatsappMessage = `Nama: ${name}%0APesan: ${message}`;
+            
+            // Open WhatsApp with pre-filled message
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Silakan gunakan tombol WhatsApp untuk mengirim pesan.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
